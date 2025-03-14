@@ -100,3 +100,4 @@ Dentro de tu proyecto Astro, verás las siguientes carpetas y archivos:
 │   │       └── index.astro
 ├── tailwind.config.mjs
 └── tsconfig.json
+
