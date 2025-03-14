@@ -14,7 +14,6 @@ Este proyecto cultural tiene como objetivo promover la diversidad cultural y la 
 
 - **Astro**: Framework principal para la construcción del sitio.
 - **Tailwind CSS**: Utilizado para el diseño y la estilización.
-- **html2canvas**: Para la captura de componentes y páginas como imágenes.
 - **Sharp**: Para la optimización de imágenes.
 
 ## Comandos de Desarrollo y Despliegue
