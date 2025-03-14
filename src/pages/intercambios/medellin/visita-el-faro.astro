@@ -8,6 +8,10 @@ const eventoId = 'visita-el-faro';
 const ciudad = ciudades[ciudadId];
 const evento = ciudad.eventos.find(e => e.id === eventoId);
 
+if (!evento) {
+  throw new Error(`Evento con ID "${eventoId}" no encontrado en la ciudad "${ciudadId}"`);
+}
+
 // Contenido adicional personalizado para este evento
 const contenidoAdicional = {
   descripcionDetallada: `
@@ -18,13 +22,13 @@ const contenidoAdicional = {
     y gestores que hacen parte de esta iniciativa.
   `,
   programacion: [
-    { hora: '10:00', actividad: 'Encuentro en Platohedro' },
+    { hora: '10:00', actividad: 'Encuentro en casa cultural' },
     { hora: '10:30', actividad: 'Desplazamiento a El Faro' },
     { hora: '11:00', actividad: 'Recorrido por las instalaciones' },
     { hora: '12:00', actividad: 'Almuerzo comunitario' },
     { hora: '14:00', actividad: 'Presentación de proyectos' },
     { hora: '16:00', actividad: 'Taller colaborativo' },
-    { hora: '18:00', actividad: 'Regreso a Platohedro' }
+    { hora: '18:00', actividad: 'Regreso' }
   ],
   proyectos: [
     'Escuela de Arte Comunitario',
@@ -48,7 +52,12 @@ const contenidoAdicional = {
 <Layout title={evento.titulo}>
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
-      <img src={evento.imagen} alt={evento.titulo} class="w-full min-h-[80vh] sm:h-96 object-cover" />
+      <img 
+        src={evento.imagen} 
+        alt={evento.titulo} 
+        class="w-full h-64 sm:h-96 object-cover" 
+        loading="eager"
+      />
       <div class="p-4 sm:p-8">
         <h1 class="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">{evento.titulo}</h1>
         <p class="text-gray-600 mb-4 sm:mb-6 text-lg sm:text-xl">{evento.fecha}</p>
@@ -102,8 +111,13 @@ const contenidoAdicional = {
         <div>
           <h2 class="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Galería</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {contenidoAdicional.galeria.map(imagen => (
-              <img src={imagen} alt="Imagen de El Faro" class="rounded-lg shadow-md h-40 sm:h-48 w-full object-cover" />
+            {contenidoAdicional.galeria.map((imagen, index) => (
+              <img 
+                src={imagen} 
+                alt={`Imagen ${index + 1} de El Faro`} 
+                class="rounded-lg shadow-md h-40 sm:h-48 w-full object-cover" 
+                loading="lazy"
+              />
             ))}
           </div>
         </div>
@@ -114,7 +128,7 @@ const contenidoAdicional = {
     <div class="text-center mt-6 sm:mt-8">
       <a 
         href="/intercambios/medellin" 
-        class="inline-block px-5 sm:px-6 py-2 sm:py-3 bg-primary text-white rounded-md hover:bg-purple-700 transition-colors"
+        class="inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
       >
         Volver a eventos de Medellín
       </a>

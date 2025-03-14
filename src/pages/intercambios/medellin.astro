@@ -17,8 +17,8 @@ const ciudad = ciudades[ciudadId];
         
         <!-- Aquí puedes agregar contenido personalizado para Medellín -->
         <div class="mt-6 p-4 bg-gray-100 rounded-lg">
-          <h2 class="text-2xl font-semibold mb-3">Sobre Platohedro</h2>
-          <p>Platohedro es un espacio cultural y artístico ubicado en el barrio Buenos Aires de Medellín, 
+          <h2 class="text-2xl font-semibold mb-3">Sobre  la acsa cultural</h2>
+          <p>Esta casa es un espacio cultural y artístico ubicado en el barrio Buenos Aires de Medellín, 
           que promueve la experimentación, la colaboración y el intercambio de saberes.</p>
           
           <!-- Puedes agregar más contenido personalizado aquí -->
@@ -30,33 +30,48 @@ const ciudad = ciudades[ciudadId];
 
     <p class="text-white m-8">Nuestro objetivo es promover la diversidad cultural y la interacción entre artistas y audiencias, creando un espacio donde el arte y la cultura se encuentren de manera orgánica y natural.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {ciudad.eventos.map((evento) => (
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          {evento.video ? (
-            <div class="aspect-w-16 aspect-h-9">
-              <iframe
-                src={evento.video}
-                class="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-          ) : (
-            <img src={evento.imagen} alt={evento.titulo} class="w-full h-48 object-cover" />
-          )}
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">{evento.titulo}</h3>
-            <p class="text-gray-500 mb-2">{evento.fecha}</p>
-            <p class="text-gray-600 line-clamp-2">{evento.descripcion}</p>
-            <a 
-              href={`/intercambios/medellin/${evento.id}`} 
-              class="mt-4 inline-block px-4 py-2 bg-primary text-white rounded-md hover:bg-purple-700 transition-colors"
-            >
-              Ver más
-            </a>
-          </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/imagenes/enplato.jpg" alt="Actividad en plato" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Actividad en plato</h3>
+          <p class="text-gray-500 mb-2">15-20 Marzo, 2024</p>
+          <p class="text-gray-600 line-clamp-2">Intervenciones artísticas en diferentes espacios de la ciudad</p>
+          <a 
+            href={`/intercambios/medellin/actividad-en-plato`} 
+            class="mt-4 inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+          >
+            Ver más
+          </a>
         </div>
-      ))}
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/imagenes/motivando.jpg" alt="Visita Motivando a las Gyal" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Visita Motivando a las Gyal</h3>
+          <p class="text-gray-500 mb-2">5-8 Abril, 2024</p>
+          <p class="text-gray-600 line-clamp-2">Exposición colectiva en la Galería de Arte Moderno</p>
+          <a 
+            href={`/intercambios/medellin/visita-motivando-a-las-gyal`} 
+            class="mt-4 inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+          >
+            Ver más
+          </a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/imagenes/Visita_Faro_Eleje_1.jpg" alt="Visita el Faro" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Visita el Faro</h3>
+          <p class="text-gray-500 mb-2">12 Abril, 2024</p>
+          <p class="text-gray-600 line-clamp-2">Workshop sobre nuevas tecnologías en el arte</p>
+          <a 
+            href={`/intercambios/medellin/visita-el-faro`} 
+            class="mt-4 inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+          >
+            Ver más
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>

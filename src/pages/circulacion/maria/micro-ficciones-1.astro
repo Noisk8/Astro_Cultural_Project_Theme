@@ -4,7 +4,7 @@ import { artistas } from '../../../data/artistas';
 
 // Obtener los datos del artista y la actividad desde el archivo de datos
 const artistaId = 'maria';
-const actividadId = 'Micro ficciones con Agüeros - encuentro 1';
+const actividadId = 'micro-ficciones-1';
 const artista = artistas[artistaId];
 const actividad = artista.actividades.find(a => a.id === actividadId);
 
@@ -29,10 +29,10 @@ const contenidoAdicional = {
     vanguardias del fotomontaje.
   `,
   galeria: [
-    'https://via.placeholder.com/400x300',
-    'https://via.placeholder.com/400x300',
-    'https://via.placeholder.com/400x300',
-    'https://via.placeholder.com/400x300'
+    '/imagenes/actividadcultural1.jpeg',
+    '/imagenes/actividadcultural2.jpeg',
+    '/imagenes/actividadcultural3.jpeg',
+    '/imagenes/cultural1.jpeg'
   ]
 };
 ---
@@ -40,7 +40,7 @@ const contenidoAdicional = {
 <Layout title={`${actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 1'} - ${artista?.nombre || 'María C'}`}>
   <main class="max-w-5xl mx-auto px-4 py-12">
     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <img src={actividad?.imagen || 'https://via.placeholder.com/400x300'} alt={actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 1'} class="w-full min-h-[60vh] sm:h-96 object-cover" />
+      <img src={actividad?.imagen || '/imagenes/actividadcultural1.jpeg'} alt={actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 1'} class="w-full h-64 sm:h-96 object-cover" loading="eager" />
       <div class="p-4 sm:p-6 md:p-8">
         <div class="flex flex-wrap items-center justify-between mb-4 sm:mb-6">
           <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">{actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 1'}</h1>

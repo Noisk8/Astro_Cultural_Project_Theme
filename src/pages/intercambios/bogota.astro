@@ -29,33 +29,48 @@ const ciudad = ciudades[ciudadId];
 
     <p class="text-white m-8">Nuestro objetivo es promover la diversidad cultural y la interacción entre artistas y audiencias, creando un espacio donde el arte y la cultura se encuentren de manera orgánica y natural.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {ciudad.eventos.map((evento) => (
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          {evento.video ? (
-            <div class="aspect-w-16 aspect-h-9">
-              <iframe
-                src={evento.video}
-                class="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-          ) : (
-            <img src={evento.imagen} alt={evento.titulo} class="w-full h-48 object-cover" />
-          )}
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">{evento.titulo}</h3>
-            <p class="text-gray-500 mb-2">{evento.fecha}</p>
-            <p class="text-gray-600 line-clamp-2">{evento.descripcion}</p>
-            <a 
-              href={`/intercambios/bogota/${evento.id}`} 
-              class="mt-4 inline-block px-4 py-2 bg-primary text-white rounded-md hover:bg-purple-700 transition-colors"
-            >
-              Ver más
-            </a>
-          </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/imagenes/actividadcultural1.jpeg" alt="Taller de Art of hosing" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Taller de Art of hosing</h3>
+          <p class="text-gray-500 mb-2">1-30 Mayo, 2024</p>
+          <p class="text-gray-600 line-clamp-2">Muestra internacional en el Museo de Arte Moderno</p>
+          <a 
+            href={`/intercambios/bogota/taller-de-art-of-hosing`} 
+            class="mt-4 inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+          >
+            Ver más
+          </a>
         </div>
-      ))}
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/imagenes/actividadcultural2.jpeg" alt="Taller Danzar la vida" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Taller Danzar la vida</h3>
+          <p class="text-gray-500 mb-2">10-15 Mayo, 2024</p>
+          <p class="text-gray-600 line-clamp-2">Serie de presentaciones en espacios alternativos</p>
+          <a 
+            href={`/intercambios/bogota/taller-danzar-la-vida`} 
+            class="mt-4 inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+          >
+            Ver más
+          </a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/imagenes/actividadcultural3.jpeg" alt="Visita a proyectos" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Visita a proyectos</h3>
+          <p class="text-gray-500 mb-2">20 Mayo, 2024</p>
+          <p class="text-gray-600 line-clamp-2">Diálogo entre artistas locales e internacionales</p>
+          <a 
+            href={`/intercambios/bogota/visita-a-proyectos`} 
+            class="mt-4 inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+          >
+            Ver más
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>

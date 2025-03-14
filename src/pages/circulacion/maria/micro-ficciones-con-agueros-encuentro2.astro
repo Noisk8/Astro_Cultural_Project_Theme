@@ -3,59 +3,71 @@ import Layout from '../../../layouts/Layout.astro';
 import { artistas } from '../../../data/artistas';
 
 // Obtener los datos del artista y la actividad desde el archivo de datos
-const artistaId = 'laura';
-const actividadId = 'dialogos-del-agua';
+const artistaId = 'maria';
+const actividadId = 'micro-ficciones-con-agueros-encuentro2';
 const artista = artistas[artistaId];
 const actividad = artista.actividades.find(a => a.id === actividadId);
 
 // Contenido adicional personalizado para esta actividad
 const contenidoAdicional = {
-  descripcionDetallada: `
-    Esta instalación sonora explora la relación entre el sonido, el espacio y la memoria colectiva. 
-    A través de grabaciones de campo realizadas en diferentes lugares de Pie de Cuesta, la obra 
-    crea un paisaje sonoro que invita a los visitantes a experimentar el territorio desde una 
-    perspectiva sensorial y afectiva, reconociendo los sonidos como parte fundamental de nuestro 
-    patrimonio cultural inmaterial.
-  `,
   procesoCreativo: `
-    El proceso creativo incluyó tres meses de trabajo de campo, recolectando sonidos de diferentes 
-    espacios urbanos y rurales de Pie de Cuesta: mercados, plazas, calles, ríos, bosques y hogares. 
-    Estos materiales fueron posteriormente procesados y organizados espacialmente para crear una 
-    experiencia inmersiva que permite al público recorrer auditivamente el territorio.
+    Esta instalación multimedia es la continuación del proceso iniciado en el primer encuentro.
+    Ahora, las imágenes fotográficas se combinan con elementos sonoros y espaciales para crear
+    una experiencia inmersiva que invita a los espectadores a reflexionar sobre las relaciones
+    entre el cuerpo, el espacio y la tecnología en la era digital.
   `,
-  elementosTecnicos: [
-    'Sistema de sonido multicanal (8 canales)',
-    'Altavoces direccionales',
-    'Sensores de presencia',
-    'Controladores MIDI personalizados',
-    'Software de procesamiento de audio en tiempo real'
+  tecnicas: [
+    'Proyección de imágenes en gran formato',
+    'Sonido espacializado',
+    'Sensores de movimiento',
+    'Programación en tiempo real'
   ],
-  horarios: [
-    { dia: 'Lunes a Viernes', hora: '10:00 - 18:00' },
-    { dia: 'Sábados', hora: '11:00 - 20:00' },
-    { dia: 'Domingos', hora: '11:00 - 16:00' }
-  ],
-  imagenes: [
-    '/imagenes/actividadcultural1.jpeg',
+  inspiracion: `
+    Esta segunda parte del proyecto profundiza en la relación entre lo analógico y lo digital,
+    explorando cómo las nuevas tecnologías transforman nuestra percepción del espacio y el tiempo.
+    La obra dialoga con referentes del arte interactivo y las instalaciones multimedia contemporáneas.
+  `,
+  galeria: [
     '/imagenes/actividadcultural2.jpeg',
     '/imagenes/actividadcultural3.jpeg',
+    '/imagenes/actividadcultural1.jpeg',
     '/imagenes/cultural1.jpeg'
   ]
 };
 ---
 
-<Layout title={`${actividad?.titulo || 'Diálogos del agua'} - ${artista?.nombre || 'Laura Sofia'}`}>
+<Layout title={`${actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 2'} - ${artista?.nombre || 'María C'}`}>
   <main class="max-w-5xl mx-auto px-4 py-12">
     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <img src={actividad?.imagen || '/imagenes/actividadcultural2.jpeg'} alt={actividad?.titulo || 'Diálogos del agua'} class="w-full h-64 sm:h-96 object-cover" loading="eager" />
+      <div class="relative">
+        {actividad?.tipo === 'video' ? (
+          <div class="aspect-video">
+            <iframe
+              src={actividad?.video || 'https://www.youtube.com/embed/dQw4w9WgXcQ'}
+              class="w-full h-full"
+              title={actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 2'}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        ) : (
+          <img 
+            src={actividad?.imagen || '/imagenes/actividadcultural2.jpeg'} 
+            alt={actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 2'} 
+            class="w-full h-64 sm:h-96 object-cover" 
+            loading="eager" 
+          />
+        )}
+      </div>
       <div class="p-4 sm:p-6 md:p-8">
         <div class="flex flex-wrap items-center justify-between mb-4 sm:mb-6">
-          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">{actividad?.titulo || 'Diálogos del agua'}</h1>
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">{actividad?.titulo || 'Micro ficciones con Agüeros - encuentro 2'}</h1>
           <a href={`/circulacion/${artistaId}`} class="mt-2 inline-flex items-center text-blue-600 hover:text-blue-800">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Volver a {artista?.nombre || 'Laura Sofia'}
+            Volver a {artista?.nombre || 'María C'}
           </a>
         </div>
         
@@ -73,49 +85,35 @@ const contenidoAdicional = {
         </div>
         
         <div class="prose prose-lg max-w-none mb-6 sm:mb-8">
-          <p class="text-gray-700">{actividad?.descripcionCompleta || actividad?.descripcion || 'Instalación sonora que transforma el silencio en una experiencia sensorial tangible.'}</p>
+          <p class="text-gray-700">{actividad?.descripcionCompleta || actividad?.descripcion || 'Instalación multimedia que combina elementos visuales, sonoros y espaciales para crear una experiencia inmersiva.'}</p>
         </div>
         
         <!-- Contenido adicional personalizado -->
-        <div class="mb-6 sm:mb-8">
-          <h2 class="text-xl sm:text-2xl font-semibold mb-3">Sobre la instalación</h2>
-          <p class="text-gray-700">{contenidoAdicional.descripcionDetallada}</p>
-        </div>
-        
         <div class="mb-6 sm:mb-8">
           <h2 class="text-xl sm:text-2xl font-semibold mb-3">Proceso creativo</h2>
           <p class="text-gray-700">{contenidoAdicional.procesoCreativo}</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
-          <div>
-            <h2 class="text-xl sm:text-2xl font-semibold mb-3">Elementos técnicos</h2>
-            <ul class="list-disc pl-5 space-y-1">
-              {contenidoAdicional.elementosTecnicos.map(elemento => (
-                <li class="text-gray-700">{elemento}</li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h2 class="text-xl sm:text-2xl font-semibold mb-3">Horarios</h2>
-            <div class="space-y-2">
-              {contenidoAdicional.horarios.map(horario => (
-                <div class="flex justify-between border-b border-gray-200 pb-2">
-                  <span class="font-medium">{horario.dia}</span>
-                  <span>{horario.hora}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div class="mb-6 sm:mb-8">
+          <h2 class="text-xl sm:text-2xl font-semibold mb-3">Inspiración</h2>
+          <p class="text-gray-700">{contenidoAdicional.inspiracion}</p>
+        </div>
+        
+        <div class="mb-6 sm:mb-8">
+          <h2 class="text-xl sm:text-2xl font-semibold mb-3">Técnicas utilizadas</h2>
+          <ul class="list-disc pl-5 space-y-1">
+            {contenidoAdicional.tecnicas.map(tecnica => (
+              <li class="text-gray-700">{tecnica}</li>
+            ))}
+          </ul>
         </div>
         
         <!-- Galería de imágenes -->
         <div>
           <h2 class="text-xl sm:text-2xl font-semibold mb-4">Galería</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {contenidoAdicional.imagenes.map(imagen => (
-              <img src={imagen} alt="Imagen de la instalación sonora" class="rounded-lg shadow-md h-40 sm:h-48 w-full object-cover" />
+            {contenidoAdicional.galeria.map(imagen => (
+              <img src={imagen} alt="Imagen de la instalación multimedia" class="rounded-lg shadow-md h-48 w-full object-cover" loading="lazy" />
             ))}
           </div>
         </div>
@@ -123,7 +121,7 @@ const contenidoAdicional = {
     </div>
     
     <div class="mt-8 sm:mt-12">
-      <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center sm:text-left">Otras actividades de {artista?.nombre || 'Laura Sofia'}</h2>
+      <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Otras actividades de {artista?.nombre || 'María C'}</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {artista?.actividades
           .filter(a => a.id !== actividadId)
@@ -140,7 +138,7 @@ const contenidoAdicional = {
                     </div>
                   </div>
                 ) : (
-                  a.imagen && <img src={a.imagen} alt={a.titulo} class="w-full h-40 object-cover" />
+                  a.imagen && <img src={a.imagen} alt={a.titulo} class="w-full h-40 object-cover" loading="lazy" />
                 )}
                 <div class="p-4">
                   <h3 class="text-lg font-semibold text-gray-900 mb-1">{a.titulo}</h3>

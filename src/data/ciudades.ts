@@ -20,9 +20,9 @@ export interface Ciudades {
 
 export const ciudades: Ciudades = {
   medellin: {
-    nombre: 'Platohedro - Medellín',
-    descripcion: 'Intercambio con en Medellín con el ecosistema de platohedro',
-    imagen: '/imagenes/FACHADA1.jpg',
+    nombre: 'Medellín',
+    descripcion: 'Intercambio con en Medellín con el ecosistema de la acsa cultural',
+    imagen: '/imagenes/mdmd.webp',
     eventos: [
       {
         id: 'actividad-en-plato',
@@ -50,28 +50,28 @@ export const ciudades: Ciudades = {
   bogota: {
     nombre: 'Bogotá',
     descripcion: 'Capital cultural de Colombia, centro de convergencia artística y creativa.',
-    imagen: '/imagenes/foto2.jpg',
+    imagen: '/imagenes/bogota.jpeg',
     eventos: [
       {
         id: 'taller-de-art-of-hosing',
         titulo: 'Taller de Art of hosing',
         fecha: '1-30 Mayo, 2024',
         descripcion: 'Muestra internacional en el Museo de Arte Moderno',
-        imagen: '/imagenes/foto3.jpg'
+        imagen: '/imagenes/actividadcultural1.jpeg'
       },
       {
         id: 'taller-danzar-la-vida',
         titulo: 'Taller Danzar la vida',
         fecha: '10-15 Mayo, 2024',
         descripcion: 'Serie de presentaciones en espacios alternativos',
-        imagen: '/imagenes/foto3.jpg'
+        imagen: '/imagenes/actividadcultural2.jpeg'
       },
       {
         id: 'visita-a-proyectos',
         titulo: 'Visita a proyectos',
         fecha: '20 Mayo, 2024',
         descripcion: 'Diálogo entre artistas locales e internacionales',
-        imagen: '/imagenes/foto2.jpg'
+        imagen: '/imagenes/actividadcultural3.jpeg'
       }
     ]
   }
